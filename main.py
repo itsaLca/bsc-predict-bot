@@ -41,8 +41,8 @@ if __name__ == "__main__":
   )
 
 
-  SECRET_KEY = os.getenv('SECRET_KEY')
-  ACCOUNT = os.getenv('ACCOUNT')
+  SECRET_KEY = os.getenv('secret')
+  ACCOUNT = os.getenv('account')
 
   args = parser.parse_args()
   strategy = args.strategy
