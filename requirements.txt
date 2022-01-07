@@ -5,3 +5,4 @@ gunicorn
 investpy
 dj_database_url
 whitenoise
+telegram-send
