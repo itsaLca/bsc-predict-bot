@@ -7,6 +7,7 @@ from predict.classes.BetClass import Bet
 from time import sleep
 import logging
 import time
+from telegramHandler import sendMessage
 
 log_format = '[%(asctime)s] [%(levelname)s] - %(message)s'
 logging.basicConfig(level=logging.INFO, format=log_format)
