@@ -61,6 +61,7 @@ class BaseBot:
 
   def run(self):
     logging.info(f"Starting bot {self.name}")
+    sendMessage((f"Starting bot {self.name}")
     while True:
       now = time.time()
       since_last_claim_attempt = now - self.last_claim
@@ -79,12 +80,15 @@ class BaseBot:
         bet = self.get_bet(bettable_round)
         if bet:
           logging.info(f"Making bet {bet}")
+          sendMessage(f"Making bet {bet}")
           self.epochs_bet.add(bettable_round.epoch)
           try:
             if not self.dry:
               make_bet(account=self.account, secret_key=self.secret_key, bet=bet )
             logging.info("Bet success")
+            sendMessage("Bet Success")
           except Exception as e:
             logging.error("Bet failed", e)
+            sendMessage("Bet failed", e)
         sleep(Config.sleep_seconds)
       pass
