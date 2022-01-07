@@ -15,6 +15,14 @@
         })
         .catch(error => console.error('Error:', error));
     }
+    function stopRobot(){
+      fetch('/stop/')
+        .then(res => res.text())
+        .then(response => {
+          document.getElementById('resultado').innerHTML = response;
+        })
+        .catch(error => console.error('Error:', error));
+    }    
   </script>
   <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
@@ -41,6 +49,9 @@
     </div>
     <button onClick="startRobot()">
       <h1>Iniciar Operações</h1>
+    </button>
+    <button onClick="stopRobot()">
+      <h1>Parar Operações</h1>
     </button>
     <div id="resultado">
       <h1>{{ robots }}</h1>
