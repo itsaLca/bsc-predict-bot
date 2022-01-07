@@ -6,8 +6,10 @@ import gc
 import asyncio
 
 def index(request):
-    return render(request,'index.html',{'robots':asyncio.all_tasks()})
-
+    try:
+        return render(request,'index.html',{'robots':asyncio.all_tasks()})
+    except:
+        return render(request,'index.html',{'robots':"none"})
 def startRobot(request, strategy, ammount):
     robotInstance = Robot(strategy, ammount)
     robotInstance.start()
