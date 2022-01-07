@@ -3,7 +3,7 @@ from datetime import datetime
 from django.http import HttpResponse
 from predict.main import Robot
 import gc
-import threading
+
 
 def index(request):
     robots = []
@@ -12,10 +12,10 @@ def index(request):
             robots.push(obj)
     return render(request,'index.html',{'robots':robots})
 
+
 def startRobot(request, strategy, ammount):
     robotInstance = Robot(strategy, ammount)
-    t = threading.Thread(target=robotInstance.start(),args=[task.id],daemon=True)
-    t.start()
+    robotInstance.start()
     return HttpResponse(f"ligou {robotInstance}")
 
 def stopRobot(request):

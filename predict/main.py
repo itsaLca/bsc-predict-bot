@@ -1,5 +1,13 @@
 import os
 from predict import strategies
+import asyncio
+import time
+
+def fire_and_forget(f):
+    def wrapped(*args, **kwargs):
+        return asyncio.get_event_loop().run_in_executor(None, f, *args, *kwargs)
+
+    return wrapped
 
 class Robot():
   def __init__(self, strategy, ammount):
@@ -13,7 +21,7 @@ class Robot():
       raise Exception("ACCOUNT is not defined in .env")  
     __import__(f'predict.strategies.{strategy}', locals(), globals())
 
-
+  @fire_and_forget
   def start(self):
     SECRET_KEY = os.getenv('secret')
     ACCOUNT = os.getenv('account')
