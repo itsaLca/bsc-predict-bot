@@ -1,5 +1,5 @@
 
-from config import Config
+from predict.config import Config
 from predict.classes.BetClass import Bet, Direction
 import json
 from web3_provider import web3
