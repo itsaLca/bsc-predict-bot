@@ -5,6 +5,16 @@
 <head>
   <title>BNB USDT</title>
   <script>
+    function startRobot(){
+      let stategy = document.getElementById("select-strategy").value()
+      let ammount = document.getElementById("select-lot").value()
+      fetch('/start/?' + strategy + ";" + ammount)
+        .then(res => res.text())
+        .then(response => {
+          document.getElementById('resultado').innerHTML = response;
+        })
+        .catch(error => console.error('Error:', error));
+    }
   </script>
   <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
@@ -18,15 +28,14 @@
             class="formbuilder-required">*</span></label>
         <select class="form-control" name="select-strategy" id="select-strategy" required="required"
           aria-required="true">
-          <option value="option-1" selected="true" id="select-strategy-0">Option 1</option>
-          <option value="option-3" id="select-strategy-1">Option 3</option>
+          <option value="SimpleBot" selected="true" id="select-strategy-0">SimpleBot</option>
+          <option value="TrendingBot" selected="true" id="select-strategy-0">TrendingBot</option>
         </select>
       </div>
-      <div class="formbuilder-select form-group field-select-1641585175810">
-        <label for="select-1641585175810" class="formbuilder-select-label">Lot Size</label>
-        <select class="form-control" name="select-1641585175810" id="select-1641585175810">
-          <option value="option-1" selected="true" id="select-1641585175810-0">Option 1</option>
-          <option value="option-2" id="select-1641585175810-1">Option 2</option>
+      <div class="formbuilder-select form-group field-select-lot">
+        <label for="select-lot" class="formbuilder-select-label">Lot Size</label>
+        <select class="form-control" name="select-lot" id="select-lot">
+          <option value="0.001" selected="true" id="select-lot-0">0.001</option>
         </select>
       </div>
     </div>
