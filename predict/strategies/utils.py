@@ -1,4 +1,4 @@
-from classes.BetClass import Direction
+from predict.classes.BetClass import Direction
 from decimal import Decimal
 from web3_provider import web3
 

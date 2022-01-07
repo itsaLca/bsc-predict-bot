@@ -1,10 +1,10 @@
 
 from config import Config
-from classes.BetClass import Bet, Direction
+from predict.classes.BetClass import Bet, Direction
 import json
 from web3_provider import web3
 import os
-from classes.RoundClass import Round
+from predict.classes.RoundClass import Round
 from typing import Tuple, List
 import requests
 

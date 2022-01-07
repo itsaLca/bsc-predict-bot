@@ -1,5 +1,5 @@
 from __future__ import division
-from classes.BetClass import Direction
+from predict.classes.BetClass import Direction
 from dataclasses import dataclass
 from typing import List
 

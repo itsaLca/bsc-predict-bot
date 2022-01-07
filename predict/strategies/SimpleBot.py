@@ -1,11 +1,11 @@
 from strategies.BaseBot import BaseBot
 from typing import Optional
-from classes.RoundClass import Round
-from classes.BetClass import Bet
+from predict.classes.RoundClass import Round
+from predict.classes.BetClass import Bet
 
-from classes.RoundClass import Round
+from predict.classes.RoundClass import Round
 from typing import Optional, List
-from classes.BetClass import Bet
+from predict.classes.BetClass import Bet
 import time
 
 # NOTE: Class must be named Bot
