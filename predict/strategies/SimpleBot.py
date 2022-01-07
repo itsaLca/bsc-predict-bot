@@ -1,4 +1,4 @@
-from strategies.BaseBot import BaseBot
+from predict.strategies.BaseBot import BaseBot
 from typing import Optional
 from predict.classes.RoundClass import Round
 from predict.classes.BetClass import Bet
