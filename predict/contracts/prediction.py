@@ -1,3 +1,4 @@
+
 from config import Config
 from classes.BetClass import Bet, Direction
 import json

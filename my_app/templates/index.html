@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>DailyDolar</title>
+  <script>
+    function callApi(){
+      let data = document.getElementById('dataTarget').value.split('-').reverse().join("-");
+      fetch('/calculo/' + data)
+        .then(res => res.text())
+        .then(response => {
+          document.getElementById('resultado').innerHTML = response;
+        })
+        .catch(error => console.error('Error:', error));
+    }
+  </script>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400' rel='stylesheet'>
+</head>
+<body>
+    <h1>Dailydolar - Calculo 1</h1>
+    <div class="gallery">
+        <input id="dataTarget" type="date" style="height:80px;margin:20px">Data</input>
+        <button onClick="callApi()"><h1>Calcular pontos de reversão</h1></button>
+        <div id="resultado">
+            <h1>Data escolhida: {{dia}}</h1>
+            <h3>Valor do Cálculo 1: {{calculo1}} pontos</h3>
+            {% for ponto in pontos %}
+              <h3>Ponto {{ponto.0|add:1}}: {{ponto.1}}</h3>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

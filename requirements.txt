@@ -1,2 +1,5 @@
 web3
 dotenv-python
+Django
+gunicorn
+investpy
