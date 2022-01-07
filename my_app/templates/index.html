@@ -6,7 +6,7 @@
   <title>BNB USDT</title>
   <script>
     function startRobot(){
-      let stategy = document.getElementById("select-strategy").value;
+      let strategy = document.getElementById("select-strategy").value;
       let ammount = document.getElementById("select-lot").value;
       fetch('/start/?' + strategy + ";" + ammount)
         .then(res => res.text())
