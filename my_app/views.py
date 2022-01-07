@@ -10,7 +10,7 @@ def index(request):
     for obj in gc.get_objects():
         if isinstance(obj, Robot):
             robots.push(obj)
-    return render(request,'index.html',{'robots':[robots]})
+    return render(request,'index.html',{'robots':robots})
 
 def startRobot(request, strategy, ammount):
     robotInstance = Robot(strategy, ammount)
