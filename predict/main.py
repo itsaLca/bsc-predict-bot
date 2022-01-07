@@ -18,5 +18,5 @@ class Robot():
     SECRET_KEY = os.getenv('secret')
     ACCOUNT = os.getenv('account')
     bot = getattr(strategies, self.strategy)
-    bot = bot.Bot(dry=False, account=ACCOUNT, secret_key=SECRET_KEY, bet_size_eth=bet_size_eth, min_balance_eth=min_balance_eth)
+    bot = bot.Bot(dry=False, account=ACCOUNT, secret_key=SECRET_KEY, bet_size_eth=self.ammount, min_balance_eth=0)
     bot.run()
