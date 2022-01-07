@@ -1,5 +1,5 @@
 import os
-from predict.main import strategies
+from predict import strategies
 
 class Robot():
   def __init__(self, strategy, ammount):
@@ -11,7 +11,7 @@ class Robot():
       raise Exception("SECRET_KEY is not defined in .env")
     elif (ACCOUNT is None and not args.dry):
       raise Exception("ACCOUNT is not defined in .env")  
-    __import__(f'predict.main.strategies.{strategy}', locals(), globals())
+    __import__(f'predict.strategies.{strategy}', locals(), globals())
 
 
   def start():
