@@ -79,8 +79,7 @@ def runCommand(request, strategy, size):
     cmd = f"python main.py --strategy {stategy} --size {size}"
     process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     while True:
-    nextline = process.stdout.readline()
-
+        nextline = process.stdout.readline()
     if nextline == '' and process.poll() is not None:
         break
     sys.stdout.write(nextline)
