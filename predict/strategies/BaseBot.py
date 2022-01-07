@@ -1,4 +1,4 @@
-from contracts.oracle import get_latest_oracle_data, get_oracle_history
+from predict.contracts.oracle import get_latest_oracle_data, get_oracle_history
 from config import Config
 from predict.classes.RoundClass import Round
 from predict.contracts.prediction import claim, get_current_epoch, get_history, get_round,  make_bet

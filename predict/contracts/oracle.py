@@ -1,9 +1,9 @@
 from config import Config
-from classes.BetClass import Bet, Direction
+from predict.classes.BetClass import Bet, Direction
 import json
 from web3_provider import web3
 import os
-from classes.OracleClass import Oracle
+from predict.classes.OracleClass import Oracle
 from typing import List
 
 base_path = os.path.dirname(os.path.realpath(__file__))
