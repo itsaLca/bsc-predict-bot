@@ -1,5 +1,5 @@
 import os
-import predict.main.strategies
+from predict.main import strategies
 
 class Robot():
   def __init__(self, strategy, ammount):
@@ -15,6 +15,6 @@ class Robot():
 
 
   def start():
-    bot = getattr(strategies, strategy)
+    bot = getattr(strategies, self.strategy)
     bot = bot.Bot(dry=args.dry, account=ACCOUNT, secret_key=SECRET_KEY, bet_size_eth=bet_size_eth, min_balance_eth=min_balance_eth)
     bot.run()
