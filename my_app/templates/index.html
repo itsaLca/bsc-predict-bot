@@ -1,19 +1,42 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <title>BNB USDT</title>
   <script>
   </script>
   <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
+
 <body>
-    <h1>Trading Bot</h1>
-    <div class="gallery">
-        <button onClick="startRobot()"><h1>Iniciar Operações</h1></button>
-        <div id="resultado">
-          
-        </div>
+  <h1>Trading Bot</h1>
+  <div class="gallery">
+    <div class="rendered-form">
+      <div class="formbuilder-select form-group field-select-strategy">
+        <label for="select-strategy" class="formbuilder-select-label">Strategy<span
+            class="formbuilder-required">*</span></label>
+        <select class="form-control" name="select-strategy" id="select-strategy" required="required"
+          aria-required="true">
+          <option value="option-1" selected="true" id="select-strategy-0">Option 1</option>
+          <option value="option-3" id="select-strategy-1">Option 3</option>
+        </select>
+      </div>
+      <div class="formbuilder-select form-group field-select-1641585175810">
+        <label for="select-1641585175810" class="formbuilder-select-label">Lot Size</label>
+        <select class="form-control" name="select-1641585175810" id="select-1641585175810">
+          <option value="option-1" selected="true" id="select-1641585175810-0">Option 1</option>
+          <option value="option-2" id="select-1641585175810-1">Option 2</option>
+        </select>
+      </div>
     </div>
+    <button onClick="startRobot()">
+      <h1>Iniciar Operações</h1>
+    </button>
+    <div id="resultado">
+
+    </div>
+  </div>
 </body>
+
 </html>
