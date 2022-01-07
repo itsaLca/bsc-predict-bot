@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 import os
 import strategies
 
-
 class Robot():
   def __init__(self, strategy, ammount):
     SECRET_KEY = os.getenv('secret')
