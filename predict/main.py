@@ -5,7 +5,7 @@ class Robot():
   def __init__(self, strategy, ammount):
     SECRET_KEY = os.getenv('secret')
     ACCOUNT = os.getenv('account')
-    self.stategy = stategy
+    self.strategy = strategy
     self.ammount = ammount
     if (SECRET_KEY is None and not args.dry):
       raise Exception("SECRET_KEY is not defined in .env")
