@@ -2,7 +2,7 @@
 from predict.config import Config
 from predict.classes.BetClass import Bet, Direction
 import json
-from web3_provider import web3
+from predict.web3_provider import web3
 import os
 from predict.classes.RoundClass import Round
 from typing import Tuple, List
