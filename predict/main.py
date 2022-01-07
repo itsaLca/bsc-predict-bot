@@ -20,4 +20,3 @@ class Robot():
     bot = getattr(trategies, strategy)
     bot = bot.Bot(dry=args.dry, account=ACCOUNT, secret_key=SECRET_KEY, bet_size_eth=bet_size_eth, min_balance_eth=min_balance_eth)
     bot.run()
-
