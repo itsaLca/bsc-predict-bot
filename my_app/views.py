@@ -3,7 +3,7 @@ from datetime import datetime
 from django.http import HttpResponse
 from predict.main import Robot
 import gc
-import asyncio
+import threading
 
 def index(request):
     robots = []
@@ -14,7 +14,8 @@ def index(request):
 
 def startRobot(request, strategy, ammount):
     robotInstance = Robot(strategy, ammount)
-    asyncio.ensure_future(robotInstance.start())
+    t = threading.Thread(target=robotInstance.start(),args=[task.id],daemon=True)
+    t.start()
     return HttpResponse(f"ligou {robotInstance}")
 
 def stopRobot(request):
