@@ -17,6 +17,5 @@ def startRobot(request, strategy, ammount):
 
 def stopRobot(request):
     for obj in gc.get_objects():
-    if isinstance(obj, Robot):
-        del obj
-    
+        if isinstance(obj, Robot):
+            del obj
