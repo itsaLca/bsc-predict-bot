@@ -5,9 +5,11 @@ from predict.main import Robot
 import gc
 
 def index(request):
-    data =  data=datetime.today().strftime('%d/%m/%Y')
-    calcData = "oi"
-    return render(request,'index.html',{'dia':data})
+    robots = Set()
+    for obj in gc.get_objects():
+        if isinstance(obj, Robot):
+            robots.add(obj)
+    return render(request,'index.html',{'robots':robots})
 
 def startRobot(request, strategy, ammount):
     robotInstance = Robot(strategy, ammount)
