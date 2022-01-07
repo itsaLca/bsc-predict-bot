@@ -4,14 +4,12 @@ from django.http import HttpResponse
 from predict.main import Robot
 import gc
 
-
 def index(request):
     robots = []
     for obj in gc.get_objects():
         if isinstance(obj, Robot):
             robots.push(obj)
     return render(request,'index.html',{'robots':robots})
-
 
 def startRobot(request, strategy, ammount):
     robotInstance = Robot(strategy, ammount)
@@ -21,5 +19,6 @@ def startRobot(request, strategy, ammount):
 def stopRobot(request):
     for obj in gc.get_objects():
         if isinstance(obj, Robot):
+            name = obj.__str__()
             del obj
-    return HttpResponse(f"desligou")
+    return HttpResponse(f"desligou {name}")
