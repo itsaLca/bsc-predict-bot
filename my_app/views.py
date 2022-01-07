@@ -5,10 +5,10 @@ from predict.main import Robot
 import gc
 
 def index(request):
-    robots = Set()
+    robots = []
     for obj in gc.get_objects():
         if isinstance(obj, Robot):
-            robots.add(obj)
+            robots.push(obj)
     return render(request,'index.html',{'robots':robots})
 
 def startRobot(request, strategy, ammount):
