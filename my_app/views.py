@@ -3,13 +3,10 @@ from datetime import datetime
 from django.http import HttpResponse
 from predict.main import Robot
 import gc
+import asyncio
 
 def index(request):
-    robots = []
-    for obj in gc.get_objects():
-        if isinstance(obj, Robot):
-            robots.push(obj)
-    return render(request,'index.html',{'robots':robots})
+    return render(request,'index.html',{'robots':asyncio.all_tasks()})
 
 def startRobot(request, strategy, ammount):
     robotInstance = Robot(strategy, ammount)
