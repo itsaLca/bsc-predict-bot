@@ -3,3 +3,4 @@ dotenv-python
 Django
 gunicorn
 investpy
+dj_database_url
