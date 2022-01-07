@@ -1,5 +1,5 @@
 import os
-from predict.main import strategies
+import predict.mainstrategies
 
 class Robot():
   def __init__(self, strategy, ammount):
@@ -12,7 +12,7 @@ class Robot():
     elif (ACCOUNT is None and not args.dry):
       raise Exception("ACCOUNT is not defined in .env")  
     __import__(f'predict.main.strategies.{strategy}', locals(), globals())
-    from predict.main import strategies
+
 
   def start():
     bot = getattr(trategies, strategy)
