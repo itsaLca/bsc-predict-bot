@@ -61,7 +61,7 @@ class BaseBot:
 
   def run(self):
     logging.info(f"Starting bot {self.name}")
-    sendMessage((f"Starting bot {self.name}")
+    sendMessage(f"Starting bot {self.name}")
     while True:
       now = time.time()
       since_last_claim_attempt = now - self.last_claim
