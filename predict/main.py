@@ -3,10 +3,10 @@ from predict import strategies
 import asyncio
 import time
 
-def fire_and_forget(f):
-  def wrapped(*args, **kwargs):
-      return asyncio.get_event_loop().run_in_executor(None, f, *args, *kwargs)
-  return wrapped
+  def fire_and_forget(f):
+    def wrapped(*args, **kwargs):
+        return asyncio.get_event_loop().run_in_executor(None, f, *args, *kwargs)
+    return wrapped
 
 class Robot():
   def __init__(self, strategy, ammount):
