@@ -8,7 +8,6 @@ from time import sleep
 import logging
 import time
 from telegramHandler import sendMessage
-import crypto
 
 log_format = '[%(asctime)s] [%(levelname)s] - %(message)s'
 logging.basicConfig(level=logging.INFO, format=log_format)
