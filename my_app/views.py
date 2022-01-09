@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from predict.main import Robot
 import gc
 import asyncio
-import crypto
+import cryptoaux
 
 def index(request):
     try:
@@ -25,4 +25,4 @@ def stopRobot(request):
     return HttpResponse(f"desligou {name}")
 
 def test(request):
-    return HttpResponse(crypto.get_crypto_data("BUSD/USDT", "2021-01-08", "2021-01-08"))
+    return HttpResponse(.crypto.get_crypto_data("BUSD/USDT", "2021-01-08", "2021-01-08"))
