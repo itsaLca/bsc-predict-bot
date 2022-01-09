@@ -7,6 +7,7 @@ import time
 import logging
 import ccxt
 import pandas as pd
+from telegramHandler import sendMessage
 
 
 # NOTE: Class must be named Bot
@@ -29,6 +30,8 @@ class Bot(BaseBot):
     # here we filter on completed rounds or rounds that closed
     completed = [r for r in self.history if r.oracleCalled]
     last_winner = completed[-1]
+
+    sendMessage(f"Last Winner: {last_winner}"})
     logging.info(f"Last Winner: {last_winner}"})
 
     bars = this.binance.fetch_ohlcv('BTC/USDT','5m',limit=133)
