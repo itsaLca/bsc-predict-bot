@@ -8,6 +8,7 @@ from time import sleep
 import logging
 import time
 from telegramHandler import sendMessage
+import crypto
 
 log_format = '[%(asctime)s] [%(levelname)s] - %(message)s'
 logging.basicConfig(level=logging.INFO, format=log_format)
@@ -71,6 +72,7 @@ class BaseBot:
           claimed = claim(account=self.account, secret_key=self.secret_key)
           if len(claimed) > 0:
             logging.info(f"Claimed epochs {claimed}")
+            sendMessage(f"Claimed epochs {claimed}")
         except Exception as e:
           logging.error("Attempt claim failed", e)
       self.__update_rounds()

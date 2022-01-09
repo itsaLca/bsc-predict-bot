@@ -7,10 +7,14 @@ from predict.classes.RoundClass import Round
 from typing import Optional, List
 from predict.classes.BetClass import Bet
 import time
+import logging
+
 
 # NOTE: Class must be named Bot
 class Bot(BaseBot):
   def get_bet(self, upcoming: Round) -> Optional[Bet]:
+    logging.info(crypto.get_crypto_data("BNBUSDT", "2021-01-01", "2021-01-09"))
+    # YYYY-MM-DD 
     # This function returns either a Bet or None based on the upcoming round.
     # If it returns a Bet, then that bet will be made
     # upcoming is the upcoming round that you're betting on

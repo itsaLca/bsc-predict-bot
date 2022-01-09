@@ -2,7 +2,8 @@ web3
 dotenv-python
 Django
 gunicorn
-investpy
 dj_database_url
 whitenoise
 telegram-send
+pandas
+ccxt

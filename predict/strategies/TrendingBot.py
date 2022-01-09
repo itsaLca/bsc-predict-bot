@@ -23,7 +23,6 @@ class Bot(BaseBot):
     # Look at the last 5 oracle values
     # NOTE: Oracle is the "current" price. Oracles get updated more frequently than rounds.
     last_oracles = self.oracle_history[-5:]
-
     # assume both bullish and bearish
     # bullish means every oracle print is greater than the prior (e.g. [500, 500.1, 500.2, 500.3, 500.4])
     # bearish means every oracle print is lower than the prior
