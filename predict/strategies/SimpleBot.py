@@ -31,8 +31,8 @@ class Bot(BaseBot):
     completed = [r for r in self.history if r.oracleCalled]
     last_winner = completed[-1]
 
-    sendMessage(f"Last Winner: {last_winner}"})
-    logging.info(f"Last Winner: {last_winner}"})
+    sendMessage(f"Last Winner: {last_winner}")
+    logging.info(f"Last Winner: {last_winner}")
 
     bars = this.binance.fetch_ohlcv('BTC/USDT','5m',limit=133)
     df = pd.DataFrame(bars, columns=['date', 'open', 'high', 'low', 'close','vol'])
