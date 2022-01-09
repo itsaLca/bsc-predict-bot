@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from predict.main import Robot
 import gc
 import asyncio
-import cryptoaux
+import ccxt
 
 def index(request):
     try:
@@ -25,4 +25,8 @@ def stopRobot(request):
     return HttpResponse(f"desligou {name}")
 
 def test(request):
-    return HttpResponse(cryptoaux.get_crypto_data("BUSD/USDT", "2021-01-08", "2021-01-08"))
+    binance = ccxt.binance()
+    data = binance.fetch_ohlcv('BTC/USDT','1d',limit=100)
+
+    return HttpResponse(data)
+        # cryptoaux.get_crypto_data("BUSD/USDT", "2021-01-08", "2021-01-08"))
