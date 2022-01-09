@@ -23,12 +23,3 @@ def stopRobot(request):
             name = obj.__str__()
             del obj
     return HttpResponse(f"desligou {name}")
-
-def test(request):
-    binance = ccxt.binance()
-    bars = binance.fetch_ohlcv('BTC/USDT','1d',limit=133)
-    for line in bars:
-        del line[5:]
-    df = pd.DataFrame(bars, columns=['date', 'open', 'high', 'low', 'close'])
-    sma = df['close'].rolling(50).mean()
-    return HttpResponse(f"DATA: /n {df} /n/n SMA: /n{sma}")
