@@ -25,4 +25,4 @@ def stopRobot(request):
     return HttpResponse(f"desligou {name}")
 
 def test(request):
-    return HttpResponse(.crypto.get_crypto_data("BUSD/USDT", "2021-01-08", "2021-01-08"))
+    return HttpResponse(cryptoaux.get_crypto_data("BUSD/USDT", "2021-01-08", "2021-01-08"))
