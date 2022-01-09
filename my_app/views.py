@@ -5,7 +5,7 @@ from predict.main import Robot
 import gc
 import asyncio
 import ccxt
-import panda as pd
+import pandas as pd
 def index(request):
     try:
         return render(request,'index.html',{'robots':asyncio.all_tasks()})
