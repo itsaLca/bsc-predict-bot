@@ -5,7 +5,9 @@ from predict.main import Robot
 import gc
 import asyncio
 import ccxt
+from . import models
 import pandas as pd
+
 def index(request):
     try:
         return render(request,'index.html',{'robots':asyncio.all_tasks()})
@@ -13,6 +15,7 @@ def index(request):
         return render(request,'index.html',{'robots':"none"})
 
 def startRobot(request, strategy, ammount):
+    models.robot.objects.create()
     robotInstance = Robot(strategy, ammount)
     robotInstance.start()
     return HttpResponse(f"ligou {robotInstance}")

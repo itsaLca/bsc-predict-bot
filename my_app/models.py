@@ -5,6 +5,7 @@ from django.urls import reverse
 class robots(models.Model):
     nome = models.CharField(max_length=200)
     tipo = models.CharField(max_length=300)
+    lote = models.CharField(max_length=300)
     last_updated = models.DateTimeField(auto_now_add=True, editable=False)
     created = models.DateTimeField(auto_now_add=True, editable=False)
 
@@ -15,4 +16,4 @@ class robots(models.Model):
         return str(self.nome)
 
     def status(self):
-        return [self.nome, self.tipo, self.created]
+        return [self.nome, self.tipo, self.created, self.lote]
