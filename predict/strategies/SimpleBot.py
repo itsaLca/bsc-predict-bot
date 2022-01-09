@@ -38,10 +38,10 @@ class Bot(BaseBot):
     df = pd.DataFrame(bars, columns=['date', 'open', 'high', 'low', 'close','vol'])
     dfC = df['close']
     sma50 = df['close'].rolling(50).mean()
-    if(dfC[-1] > sma50[-1]){
+    if(dfC.iget(-1) > sma50.iget(-1)){
       return Bet(direction=Direction.BULL, amount_eth=self.bet_size_eth, epoch=upcoming.epoch)
     }
-    else if(dfC[-1] < sma50[-1]){
+    else if(dfC.iget(-1) < sma50.iget(-1)){
       return Bet(direction=Direction.BEAR, amount_eth=self.bet_size_eth, epoch=upcoming.epoch)
     }
      
