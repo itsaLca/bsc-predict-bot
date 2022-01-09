@@ -9,7 +9,7 @@ import pandas as pd
 
 def index(request):
     try:
-        return render(request,'index.html',{'robots':asyncio.all_tasks()})
+        return render(request,'index.html',{'robots':asyncio.get_event_loop()})
     except:
         return render(request,'index.html',{'robots':"none"})
 
