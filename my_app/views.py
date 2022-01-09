@@ -15,9 +15,9 @@ def index(request):
         return render(request,'index.html',{'robots':"none"})
 
 def startRobot(request, strategy, ammount):
-    models.robot.objects.create()
     robotInstance = Robot(strategy, ammount)
     robotInstance.start()
+    models.robots.objects.create("tipo" = strategy, "lote" = ammount)
     return HttpResponse(f"ligou {robotInstance}")
 
 def stopRobot(request):
