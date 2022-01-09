@@ -4,12 +4,14 @@ from django.http import HttpResponse
 from predict.main import Robot
 import gc
 import asyncio
+import crypto
 
 def index(request):
     try:
         return render(request,'index.html',{'robots':asyncio.all_tasks()})
     except:
         return render(request,'index.html',{'robots':"none"})
+
 def startRobot(request, strategy, ammount):
     robotInstance = Robot(strategy, ammount)
     robotInstance.start()
@@ -21,3 +23,6 @@ def stopRobot(request):
             name = obj.__str__()
             del obj
     return HttpResponse(f"desligou {name}")
+
+def test(request):
+    return HttpResponse(crypto.get_crypto_data("BNBUSDT", "2021-01-08", "2021-01-08"))
