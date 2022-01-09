@@ -39,9 +39,9 @@ class Bot(BaseBot):
     dfC = df['close']
     sma50 = df['close'].rolling(50).mean()
     logging.info(dfC.iget(-1), sma50.iget(-1))
-    if(dfC.iget(-1) > sma50.iloc(-1)):
+    if (dfC.iget(-1) > sma50.iloc(-1)):
       return Bet(direction=Direction.BULL, amount_eth=self.bet_size_eth, epoch=upcoming.epoch)
-    else if(dfC.iloc(-1) < sma50.iget(-1)):
+    elif (dfC.iloc(-1) < sma50.iget(-1)):
       return Bet(direction=Direction.BEAR, amount_eth=self.bet_size_eth, epoch=upcoming.epoch)
      
         
