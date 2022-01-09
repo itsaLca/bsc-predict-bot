@@ -29,8 +29,6 @@ def test(request):
     bars = binance.fetch_ohlcv('BTC/USDT','1d',limit=133)
     for line in bars:
         del line[5:]
-    #  2 dimensional tabular data
     df = pd.DataFrame(bars, columns=['date', 'open', 'high', 'low', 'close'])
     sma = df['close'].rolling(50).mean()
     return HttpResponse(f"DATA: /n {df} /n/n SMA: /n{sma}")
-        # cryptoaux.get_crypto_data("BUSD/USDT", "2021-01-08", "2021-01-08"))

@@ -1,17 +1,18 @@
 from predict.strategies.BaseBot import BaseBot
-from typing import Optional
 from predict.classes.RoundClass import Round
-from predict.classes.BetClass import Bet
+from predict.classes.BetClass import Bet, Direction
 
-from predict.classes.RoundClass import Round
 from typing import Optional, List
-from predict.classes.BetClass import Bet
 import time
 import logging
+import ccxt
+import pandas as pd
 
 
 # NOTE: Class must be named Bot
 class Bot(BaseBot):
+  def __init__():
+    this.binance = ccxt.binance()
   def get_bet(self, upcoming: Round) -> Optional[Bet]:
     # YYYY-MM-DD 
     # This function returns either a Bet or None based on the upcoming round.
@@ -27,9 +28,20 @@ class Bot(BaseBot):
     # At any time, there is an upcoming round that you can bet on, a `live` round that has not yet closed and the history  
     # here we filter on completed rounds or rounds that closed
     completed = [r for r in self.history if r.oracleCalled]
+    last_winner = completed[-1]
+    logging.info(f"Last Winner: {last_winner}"})
 
-    if len(completed) > 0:
-      last_winner = completed[-1]
-      if last_winner.winner:
-        return Bet(direction=last_winner.winner, amount_eth=self.bet_size_eth, epoch=upcoming.epoch)
+    bars = this.binance.fetch_ohlcv('BTC/USDT','5m',limit=133)
+    df = pd.DataFrame(bars, columns=['date', 'open', 'high', 'low', 'close','vol'])
+    dfC = df['close']
+    sma50 = df['close'].rolling(50).mean()
+    if(dfC[-1] > sma50[-1]){
+      return Bet(direction=Direction.BULL, amount_eth=self.bet_size_eth, epoch=upcoming.epoch)
+    }
+    else if(dfC[-1] < sma50[-1]){
+      return Bet(direction=Direction.BEAR, amount_eth=self.bet_size_eth, epoch=upcoming.epoch)
+    }
+     
+        
+        
     
