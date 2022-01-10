@@ -15,13 +15,12 @@ class Robot:
         elif ACCOUNT is None:
             raise Exception("ACCOUNT is not defined in .env")
         __import__(f"predict.strategies.{strategy}", locals(), globals())
-
-    # def fire_and_forget(f):
-    #   def wrapped(*args, **kwargs):
-    #       asyncio.get_event_loop()
-    #       return asyncio.get_event_loop().run_in_executor(None, f, *args, *kwargs)
-    #   return wrapped
-    # @fire_and_forget
+    def fire_and_forget(f):
+      def wrapped(*args, **kwargs):
+          asyncio.get_event_loop()
+          return asyncio.get_event_loop().run_in_executor(None, f, *args, *kwargs)
+      return wrapped
+    @fire_and_forget
     def start(self):
         SECRET_KEY = os.getenv("secret")
         ACCOUNT = os.getenv("account")
