@@ -2,9 +2,6 @@ import os
 from predict import strategies
 import asyncio
 import time
-from dotenv import load_dotenv
-
-load_dotenv()
 
 
 class Robot:
