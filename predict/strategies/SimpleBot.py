@@ -12,8 +12,6 @@ from telegramHandler import sendMessage
 
 # NOTE: Class must be named Bot
 class Bot(BaseBot):
-  def __init__():
-    this.binance = ccxt.binance()
   def get_bet(self, upcoming: Round) -> Optional[Bet]:
     # YYYY-MM-DD 
     # This function returns either a Bet or None based on the upcoming round.
@@ -34,7 +32,8 @@ class Bot(BaseBot):
     sendMessage(f"Last Winner: {last_winner}")
     logging.info(f"Last Winner: {last_winner}")
 
-    bars = this.binance.fetch_ohlcv('BTC/USDT','5m',limit=133)
+    binance = ccxt.binance()
+    bars = binance.fetch_ohlcv('BTC/USDT','5m',limit=133)
     df = pd.DataFrame(bars, columns=['date', 'open', 'high', 'low', 'close','vol'])
     dfC = df['close']
     sma50 = df['close'].rolling(50).mean()
