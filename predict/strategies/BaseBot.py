@@ -65,7 +65,7 @@ class BaseBot:
     while True:
       now = time.time()
       since_last_claim_attempt = now - self.last_claim
-      if since_last_claim_attempt >= 300 and not self.dry:
+      if since_last_claim_attempt >= 1500 and not self.dry:
         self.last_claim = now
         try:
           claimed = claim(account=self.account, secret_key=self.secret_key)
