@@ -9,14 +9,14 @@ import logging
 import pandas as pd
 from asyncio_executor_thread import robotInstance
 
+
 def index(request):
     return render(request,'index.html',{'robots':"none"})
 
 def startRobot(request, strategy, ammount):
     robotStarter = Robot(strategy, ammount)
-    robotTaskHandler = robotInstance()
-    robotTaskHandler.doTask(robotStarter.start())
-    return HttpResponse(f"ligou {robotTaskHandler.status()}")
+    robotStarter.start()
+    return HttpResponse(f"ligou")
 
 def stopRobot(request):
     for obj in gc.get_objects():
