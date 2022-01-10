@@ -8,10 +8,7 @@ import ccxt
 import pandas as pd
 
 def index(request):
-    try:
-        return render(request,'index.html',{'robots':asyncio.get_event_loop()})
-    except:
-        return render(request,'index.html',{'robots':"none"})
+    return render(request,'index.html',{'robots':"none"})
 
 def startRobot(request, strategy, ammount):
     robotInstance = Robot(strategy, ammount)
