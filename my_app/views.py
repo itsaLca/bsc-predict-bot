@@ -7,14 +7,16 @@ import asyncio
 import ccxt
 import logging
 import pandas as pd
+from asyncio_executor_thread import robotInstance
 
 def index(request):
     return render(request,'index.html',{'robots':"none"})
 
 def startRobot(request, strategy, ammount):
-    robotInstance = Robot(strategy, ammount)
-    robotInstance.start()
-    return HttpResponse(f"ligou {robotInstance}")
+    robotStarter = Robot(strategy, ammount)
+    robotTaskHandler = robotInstance()
+    robotTaskHandler.doTask(robotStarter.start())
+    return HttpResponse(f"ligou {robotTaskHandler.status()}")
 
 def stopRobot(request):
     for obj in gc.get_objects():
