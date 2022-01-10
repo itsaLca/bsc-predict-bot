@@ -10,10 +10,10 @@ class Robot():
     ACCOUNT = os.getenv('account')
     self.strategy = strategy
     self.ammount = ammount
-    if (SECRET_KEY is None and not args.dry):
+    if (SECRET_KEY is None):
       raise Exception("SECRET_KEY is not defined in .env")
-    elif (ACCOUNT is None and not args.dry):
-      raise Exception("ACCOUNT is not defined in .env")  
+    elif (ACCOUNT is None):
+      raise Exception("ACCOUNT is not defined in .env")
     __import__(f'predict.strategies.{strategy}', locals(), globals())
 
   def fire_and_forget(f):
