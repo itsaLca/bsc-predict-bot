@@ -29,16 +29,16 @@ class Bot(BaseBot):
     completed = [r for r in self.history if r.oracleCalled]
     last_winner = completed[-1]
 
-    binance = ccxt.binance()
-    bars = binance.fetch_ohlcv('BNB/USDT','5m',limit=133)
+    # binance = ccxt.binance()
+    # bars = binance.fetch_ohlcv('BNB/USDT','5m',limit=133)
 
-    df = pd.DataFrame(bars, columns=['date', 'open', 'high', 'low', 'close','vol'])
-    dfC = df['close']
-    sma50 = df['close'].rolling(50).mean()
+    # df = pd.DataFrame(bars, columns=['date', 'open', 'high', 'low', 'close','vol'])
+    # dfC = df['close']
+    # sma50 = df['close'].rolling(50).mean()
 
     sendMessage(f"Last Winner: {last_winner.winner}, epoch: {last_winner.epoch}")
-
-    if (dfC.iloc[-1] < sma50.iloc[-1]):
-      return Bet(direction=Direction.BULL, amount_eth=self.bet_size_eth, epoch=upcoming.epoch)
-    elif (dfC.iloc[-1] > sma50.iloc[-1]):
-      return Bet(direction=Direction.BEAR, amount_eth=self.bet_size_eth, epoch=upcoming.epoch)
+    return Bet(direction=Direction.BEAR, amount_eth=self.bet_size_eth, epoch=upcoming.epoch)
+    # if (dfC.iloc[-1] < sma50.iloc[-1]):
+    #   return Bet(direction=Direction.BULL, amount_eth=self.bet_size_eth, epoch=upcoming.epoch)
+    # elif (dfC.iloc[-1] > sma50.iloc[-1]):
+    #   return Bet(direction=Direction.BEAR, amount_eth=self.bet_size_eth, epoch=upcoming.epoch)
