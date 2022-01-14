@@ -42,3 +42,4 @@ class Bot(BaseBot):
     #   return Bet(direction=Direction.BULL, amount_eth=self.bet_size_eth, epoch=upcoming.epoch)
     # elif (dfC.iloc[-1] > sma50.iloc[-1]):
     #   return Bet(direction=Direction.BEAR, amount_eth=self.bet_size_eth, epoch=upcoming.epoch)
+ #
