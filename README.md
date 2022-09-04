@@ -7,7 +7,7 @@ This is a starter bot for [BSCPredict](https://bscpredict.com) or its official U
 
 **STRATEGIES PROVIDED ARE ONLY FOR DEMONSTRATION PURPOSES AND WILL LOSE MONEY**
 
-# Quick Start w/o Django
+# Quick Start (Outdated)
 
 1. Setup your virtual environment `python3 -m venv venv && source venv/bin/activate && pip install -r requirements`
 
