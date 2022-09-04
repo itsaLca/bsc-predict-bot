@@ -5,8 +5,8 @@ import asyncio
 
 class Robot:
     def __init__(self, strategy, ammount):
-        SECRET_KEY = "bfd29896ab21d49d67e7280eeef0e80bd585a9fda663daae9847f21271e7a3fb" #os.getenv("secret")
-        ACCOUNT = "0xd1f5b232Ae08202DC71E7aE378D1618426190b0e" #os.getenv("account")
+        SECRET_KEY = os.getenv("secret")
+        ACCOUNT = os.getenv("account")
         self.strategy = strategy
         self.ammount = ammount
         if SECRET_KEY is None:
