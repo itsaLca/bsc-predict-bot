@@ -1,7 +1,6 @@
 import os
 from predict import strategies
 import asyncio
-import time
 
 
 class Robot:

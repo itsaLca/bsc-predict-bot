@@ -4,7 +4,7 @@ from predict.classes.RoundClass import Round
 from predict.classes.BetClass import Bet, Direction
 
 from predict.classes.RoundClass import Round
-from typing import Optional, List
+from typing import Optional #, List
 from predict.classes.BetClass import Bet
 import time
 
