@@ -16,14 +16,14 @@ def index(request):
 def startRobot(request, strategy, ammount):
     robotStarter = Robot(strategy, ammount)
     robotStarter.start()
-    return HttpResponse(f"ligou")
+    return HttpResponse(f"turn on")
 
 def stopRobot(request):
     for obj in gc.get_objects():
         if isinstance(obj, Robot):
             name = obj.__str__()
             del obj
-    return HttpResponse(f"desligou {name}")
+    return HttpResponse(f"turn off {name}")
 
 def test(request):
     binance = ccxt.binance()
